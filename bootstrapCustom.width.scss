@@ -1,0 +1,22 @@
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+@mixin resp($screen, $width) {
+    @media only screen and (min-width: $screen) {
+        width: $width;
+    }
+}
+
+@each $screen, $size in $grid-breakpoints {
+    @for $var from 1 to 101 {
+        .w-#{$screen}-#{$var} {
+            width: ($var * 1%)!important;
+        } 
+    }
+}
